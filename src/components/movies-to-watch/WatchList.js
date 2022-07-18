@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie';
 import { Paper, Typography, List, Divider } from '@mui/material';
 
-export default function WatchList({ movies }) {
+export default function WatchList({ movies, toggleWatched, addFavorite, addDisliked, editMovie, removeMovie }) {
     return (
         <Paper>
             <Typography sx={{
@@ -24,6 +24,11 @@ export default function WatchList({ movies }) {
                             id={movie.id}
                             title={movie.title}
                             watched={movie.watched}
+                            toggleWatched={toggleWatched}
+                            addFavorite={addFavorite}
+                            addDisliked={addDisliked}
+                            editMovie={editMovie}
+                            removeMovie={removeMovie}
                         />
                         <Divider />
                     </>

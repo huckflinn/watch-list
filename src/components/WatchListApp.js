@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AppBar from './AppBar';
 import WatchList from './movies-to-watch/WatchList';
+import WatchListForm from './movies-to-watch/WatchListForm';
 import { Container, Grid } from '@mui/material';
 
 export default function WatchListApp() {
@@ -47,7 +48,11 @@ export default function WatchListApp() {
                 <Grid item xs={12} md={12} lg={8} sx={{ mt: "2rem" }}>
                     <WatchList
                         movies={movies}
+                        toggleWatched={toggleWatched}
+                        editMovie={editMovie}
+                        removeMovie={removeMovie}
                     />
+                    <WatchListForm addMovie={addMovie} />
                 </Grid>
             </Container>
         </div>

@@ -7,13 +7,11 @@ import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-function Movie({
+export default function Movie({
     id,
     title,
     watched,
     toggleWatched,
-    addFavorite,
-    addDisliked,
     editMovie,
     removeMovie
 }) {
@@ -36,12 +34,10 @@ function Movie({
                     </ListItemText>
                     <StarIcon
                         aria-label="Star"
-                        onClick={() => addFavorite(id, title)}
                         style={{ fontSize: "large", cursor: "pointer" }}
                     />
                     <SentimentVeryDissatisfiedIcon
                         aria-label="Sadface"
-                        onClick={() => addDisliked(id, title)}
                         style={{ fontSize: "large", marginLeft: "0.5rem" }}
                     />
                     <EditIcon
@@ -59,5 +55,3 @@ function Movie({
         </ListItem>
     );
 };
-
-export default Movie;
