@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 import { v4 as uuidv4 } from 'uuid';
 import AppBar from './AppBar';
 import WatchList from './movies-to-watch/WatchList';
@@ -8,12 +9,7 @@ import DislikedList from './disliked/DislikedList';
 import { Container, Grid } from '@mui/material';
 
 export default function WatchListApp() {
-    const initialMovies = [
-        { id: uuidv4(), title: "Everything Everywhere All at Once", watched: false },
-        { id: uuidv4(), title: "The Sea Beast", watched: false },
-        { id: uuidv4(), title: "The Bob's Burgers Movie", watched: false }
-    ]
-    const [movies, setMovies] = useState(initialMovies);
+    const [movies, setMovies] = useLocalStorageState("movies", []);
 
     const addMovie = newMovieTitle => {
         if (newMovieTitle === "") {
@@ -42,14 +38,10 @@ export default function WatchListApp() {
         setMovies(updatedMovies);
     };
 
+
     // FAVORITE MOVIES
 
-    const initialFavorites = [
-        { id: uuidv4(), title: "Spider-Man: Into the Spider-Verse" },
-        { id: uuidv4(), title: "Parasite" }
-    ];
-
-    const [favorites, setFavorites] = useState(initialFavorites);
+    const [favorites, setFavorites] = useLocalStorageState("favorites", []);
 
     const addFavorite = (id, title) => {
         setFavorites([...favorites, { id, title }]);
@@ -71,12 +63,7 @@ export default function WatchListApp() {
 
     // DISLIKED MOVIES
 
-    const initialDisliked = [
-        { id: uuidv4(), title: "You've Got Mail" },
-        { id: uuidv4(), title: "The Elephant Man" }
-    ];
-
-    const [disliked, setDisliked] = useState(initialDisliked);
+    const [disliked, setDisliked] = useLocalStorageState("disliked", []);
 
     const addDisliked = (id, title) => {
         setDisliked([...disliked, { id: id, title: title }]);

@@ -5,7 +5,7 @@ import { ListItem, ListItemText } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function DislikedMovie({ id, title, editDisliked, removeDisliked }) {
+export default function DislikedMovie({ id, title, editDisliked, removeDisliked }) {
     const [isEditingDisliked, toggleIsEditingDisliked] = useToggleState(false);
     return (
         <ListItem>
@@ -37,5 +37,3 @@ function DislikedMovie({ id, title, editDisliked, removeDisliked }) {
         </ListItem>
     );
 };
-
-export default DislikedMovie;

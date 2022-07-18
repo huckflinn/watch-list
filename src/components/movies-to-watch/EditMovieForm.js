@@ -3,7 +3,7 @@ import useInputState from '../../hooks/useInputState';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function EditMovieForm({ id, title, editMovie, toggleIsEditing }) {
+export default function EditMovieForm({ id, title, editMovie, toggleIsEditing }) {
     const [value, handleChange, reset] = useInputState(title);
     return (
         <form
@@ -26,5 +26,3 @@ function EditMovieForm({ id, title, editMovie, toggleIsEditing }) {
         </form>
     );
 };
-
-export default EditMovieForm;

@@ -34,6 +34,6 @@ export default function WatchList({ movies, toggleWatched, addFavorite, addDisli
                     </>
                 ))}
             </List>
-        </Paper>
+        </Paper >
     );
 };

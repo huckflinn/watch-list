@@ -3,7 +3,7 @@ import useInputState from '../../hooks/useInputState';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function EditDislikedForm({ id, title, editDisliked, toggleIsEditingDisliked }) {
+export default function EditDislikedForm({ id, title, editDisliked, toggleIsEditingDisliked }) {
     const [value, handleChange, reset] = useInputState(title);
     return (
         <form
@@ -26,5 +26,3 @@ function EditDislikedForm({ id, title, editDisliked, toggleIsEditingDisliked }) 
         </form>
     );
 };
-
-export default EditDislikedForm;

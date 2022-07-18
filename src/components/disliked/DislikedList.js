@@ -2,7 +2,7 @@ import React from 'react';
 import DislikedMovie from './DislikedMovie';
 import { Paper, Typography, List, Divider } from '@mui/material';
 
-function DislikedList({ dislikedMovies, removeDisliked, editDisliked }) {
+export default function DislikedList({ dislikedMovies, removeDisliked, editDisliked }) {
     return (
         <Paper>
             <Typography sx={{
@@ -33,5 +33,3 @@ function DislikedList({ dislikedMovies, removeDisliked, editDisliked }) {
         </Paper >
     );
 };
-
-export default DislikedList;
