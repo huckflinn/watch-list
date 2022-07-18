@@ -12,6 +12,34 @@ export default function WatchListApp() {
     ]
     const [movies, setMovies] = useState(initialMovies);
 
+    const addMovie = newMovieTitle => {
+        if (newMovieTitle === "") {
+            alert("Please enter a movie to the watch list.");
+        } else {
+            setMovies([...movies, { id: uuidv4(), title: newMovieTitle, watched: false }]);
+        };
+    };
+
+    const removeMovie = id => {
+        const updatedMovies = movies.filter(movie => movie.id !== id);
+        setMovies(updatedMovies);
+    };
+
+    const toggleWatched = id => {
+        const updatedMovies = movies.map(movie => (
+            movie.id === id ? { ...movie, watched: !movie.watched } : movie
+        ));
+        setMovies(updatedMovies);
+    };
+
+    const editMovie = (id, newTitle) => {
+        const updatedMovies = movies.map(movie => (
+            movie.id === id ? { ...movie, title: newTitle } : movie
+        ));
+        setMovies(updatedMovies);
+    };
+
+
     return (
         <div className="WatchListApp">
             <AppBar />
